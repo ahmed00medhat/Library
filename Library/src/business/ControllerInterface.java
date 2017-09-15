@@ -3,11 +3,6 @@ package business;
 import java.util.List;
 
 import business.Book;
-
-import dataaccess.DataAccess;
-import dataaccess.DataAccessFacade;
-import javafx.scene.control.TableView;
-import library.domain.CheckoutRecordEntry;
 import library.domain.CheckoutTableData;
 
 public interface ControllerInterface {
@@ -24,15 +19,11 @@ public interface ControllerInterface {
 	public List<CheckoutTableData> readCheckoutsByMemberId(String memberId) throws NotExistsException;
 
 	public List<CheckoutTableData> readCheckoutsByIsbn(String isbn) throws NotExistsException;
-	public List<CheckoutTableData> readAllCheckoutsWithOverdue() throws NotExistsException;
-	
+
 	public List<Book> allBooks();
 	public List<LibraryMember> allLibraryMembers();
-
 
 	public LibraryMember searchMember(String memberId) throws NotExistsException;
 	public Author searchAuthor(Author auth);
 	public void addBook(Book newBook);
-	public void printCheckoutTable(TableView table);
-
 }

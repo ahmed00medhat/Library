@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -24,6 +25,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import library.domain.CheckoutTableData;
+import newui.Start;
 
 public class CheckoutPane {
 	public static final CheckoutPane INSTANCE = new CheckoutPane();
@@ -87,23 +89,12 @@ public class CheckoutPane {
         	}
         });
 
-        Button printBtn = new Button("Print");
-
-        printBtn.setOnAction(new EventHandler<ActionEvent>() {
-        	@Override
-        	public void handle(ActionEvent e) {
-        		ControllerInterface sc = new SystemController();
-        		sc.printCheckoutTable(table);
-        	}
-        });
-
-
 		searchBtn.fire();
 		messageBar.setVisible(false);
 
         HBox hSearch = new HBox(10);
         hSearch.setAlignment(Pos.BOTTOM_LEFT);
-        hSearch.getChildren().addAll(searchLabel,searchTextField,searchBtn,printBtn);
+        hSearch.getChildren().addAll(searchLabel,searchTextField,searchBtn);
         grid.add(hSearch, 0, 1);
 
         table.setEditable(false);
@@ -165,14 +156,7 @@ public class CheckoutPane {
         HBox hAddPart = new HBox(10);
         hAddPart.setAlignment(Pos.BOTTOM_LEFT);
         hAddPart.getChildren().addAll(memberIdLabel,memberIdTextField,isbnLabel,isbnTextField,addBtn);
-        grid.add(hAddPart, 0, 4);
-
-
-//        HBox hPrint = new HBox(10);
-//        hPrint.setAlignment(Pos.BOTTOM_LEFT);
-//        hPrint.getChildren().addAll(printBtn);
-//        grid.add(hPrint, 0, 3);
-
+        grid.add(hAddPart, 0, 3);
 
 
 
